@@ -17,7 +17,9 @@ import com.uz.onlineshop.model.CategoryModel
  * Online shop
  * eldorturgunov777@gmail.com
  */
-class CategoryAdapter(val items: List<CategoryModel>) :
+
+
+class CategoryAdapter(val items: List<CategoryModel>, val callback: CategoryAdapterCallback) :
     RecyclerView.Adapter<CategoryAdapter.ItemHolder>() {
 
     class ItemHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -41,6 +43,7 @@ class CategoryAdapter(val items: List<CategoryModel>) :
             }
             item.checked = true
 
+            callback.onClickItem(item)
             notifyDataSetChanged()
         }
         holder.tvTitle.text = item.title
@@ -66,4 +69,8 @@ class CategoryAdapter(val items: List<CategoryModel>) :
     override fun getItemCount(): Int {
         return items.count()
     }
+}
+
+interface CategoryAdapterCallback {
+    fun onClickItem(item: CategoryModel)
 }

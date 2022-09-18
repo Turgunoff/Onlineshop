@@ -1,5 +1,6 @@
 package com.uz.onlineshop.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.uz.onlineshop.R
 import com.uz.onlineshop.model.ProductModel
+import com.uz.onlineshop.screen.productDetail.ProductDetailActivity
 import com.uz.onlineshop.utils.Constants
 
 class ProductAdapter(val items: List<ProductModel>) :
@@ -28,7 +30,11 @@ class ProductAdapter(val items: List<ProductModel>) :
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         val item = items[position]
-
+        holder.itemView.setOnClickListener {
+            val intent = Intent(it.context, ProductDetailActivity::class.java)
+            intent.putExtra(Constants.EXTRA_DATA, item)
+            it.context.startActivity(intent)
+        }
         Glide.with(holder.itemView.context)
             .load(Constants.HOST_IMAGE + item.image).into(holder.imgProduct)
         holder.tvName.text = item.name

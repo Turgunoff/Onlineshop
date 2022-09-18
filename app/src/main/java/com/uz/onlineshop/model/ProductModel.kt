@@ -1,5 +1,7 @@
 package com.uz.onlineshop.model
 
+import java.io.Serializable
+
 
 /**
  * Created by Eldor Turgunov.
@@ -11,4 +13,4 @@ data class ProductModel(
     val name: String,
     val price: String,
     val image: String
-)
+):Serializable
