@@ -11,7 +11,6 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
 
-
 /**
  * Created by Eldor Turgunov.
  * Online shop
@@ -28,8 +27,10 @@ interface Api {
     fun getTopProducts(): Call<BaseResponse<List<ProductModel>>>
 
     @GET("get_products/{category_id}")
-    fun getCategoryProducts(@Path("category_id") categoryId: Int): Call<BaseResponse<List<ProductModel>>>
+    fun getCategoryProducts(@Path("category_id") categoryId: Int):
+        Call<BaseResponse<List<ProductModel>>>
 
     @POST("get_products_by_ids")
-    fun getProductsByIds(@Body request: GetProductsByIdsRequest): Call<BaseResponse<List<ProductModel>>>
+    fun getProductsByIds(@Body request: GetProductsByIdsRequest):
+        Call<BaseResponse<List<ProductModel>>>
 }

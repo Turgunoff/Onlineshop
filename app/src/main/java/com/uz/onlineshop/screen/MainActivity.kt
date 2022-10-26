@@ -1,7 +1,7 @@
 package com.uz.onlineshop.screen
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.uz.onlineshop.R
 import com.uz.onlineshop.databinding.ActivityMainBinding
@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
-
     }
 
     private fun initFragment() {

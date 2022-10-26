@@ -1,9 +1,7 @@
 package com.uz.onlineshop
 
-import androidx.multidex.MultiDex
 import androidx.multidex.MultiDexApplication
 import com.orhanobut.hawk.Hawk
-
 
 /**
  * Created by Eldor Turgunov.

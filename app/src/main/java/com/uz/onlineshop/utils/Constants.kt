@@ -1,6 +1,5 @@
 package com.uz.onlineshop.utils
 
-
 /**
  * Created by Eldor Turgunov.
  * Online shop

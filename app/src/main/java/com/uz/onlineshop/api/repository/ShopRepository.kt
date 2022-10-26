@@ -11,7 +11,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
 /**
  * Created by Eldor Turgunov.
  * Online shop
@@ -28,24 +27,24 @@ class ShopRepository {
     ) {
         progress.value = true
         NetworkManager.getApiService().getOffers().enqueue(object :
-            Callback<BaseResponse<List<OfferModel>>> {
-            override fun onResponse(
-                call: Call<BaseResponse<List<OfferModel>>>,
-                response: Response<BaseResponse<List<OfferModel>>>
-            ) {
-                progress.value = false
-                if (response.isSuccessful) {
-                    succes.value = response.body()!!.data
-                } else {
-                    error.value = response.body()?.message ?: response.message()
+                Callback<BaseResponse<List<OfferModel>>> {
+                override fun onResponse(
+                    call: Call<BaseResponse<List<OfferModel>>>,
+                    response: Response<BaseResponse<List<OfferModel>>>
+                ) {
+                    progress.value = false
+                    if (response.isSuccessful) {
+                        succes.value = response.body()!!.data
+                    } else {
+                        error.value = response.body()?.message ?: response.message()
+                    }
                 }
-            }
 
-            override fun onFailure(call: Call<BaseResponse<List<OfferModel>>>, t: Throwable) {
-                error.value = t.localizedMessage
-                progress.value = false
-            }
-        })
+                override fun onFailure(call: Call<BaseResponse<List<OfferModel>>>, t: Throwable) {
+                    error.value = t.localizedMessage
+                    progress.value = false
+                }
+            })
 //        compositeDisposable.add(
 //            NetworkManager.getApiService().getOffers()
 //                .subscribeOn(Schedulers.io())

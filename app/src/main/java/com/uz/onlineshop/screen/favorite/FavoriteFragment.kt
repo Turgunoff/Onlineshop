@@ -1,17 +1,14 @@
 package com.uz.onlineshop.screen.favorite
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.uz.onlineshop.R
 import com.uz.onlineshop.adapter.ProductAdapter
 import com.uz.onlineshop.databinding.FragmentFavoriteBinding
-import com.uz.onlineshop.databinding.FragmentHomeBinding
 import com.uz.onlineshop.screen.MainViewModel
 import com.uz.onlineshop.utils.PrefUtils
 

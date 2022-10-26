@@ -1,7 +1,9 @@
 package com.uz.onlineshop.screen.productDetail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.uz.onlineshop.R
 import com.uz.onlineshop.databinding.ActivityProductDetailBinding
@@ -21,6 +23,16 @@ class ProductDetailActivity : AppCompatActivity() {
         item = intent.getSerializableExtra(Constants.EXTRA_DATA) as ProductModel
 
         binding.cardViewBack.setOnClickListener {
+            finish()
+        }
+        if (PrefUtils.getCartCount(item) > 0) {
+            binding.btnAddToCart.visibility = View.GONE
+        }
+
+        binding.btnAddToCart.setOnClickListener {
+            item.cartCount = 1
+            PrefUtils.setCart(item)
+            Toast.makeText(this, "Product added to Cart", Toast.LENGTH_SHORT).show()
             finish()
         }
 
@@ -48,6 +60,5 @@ class ProductDetailActivity : AppCompatActivity() {
     }
 
     fun addFavorite() {
-
     }
 }

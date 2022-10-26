@@ -11,13 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.uz.onlineshop.R
 import com.uz.onlineshop.model.CategoryModel
 
-
 /**
  * Created by Eldor Turgunov.
  * Online shop
  * eldorturgunov777@gmail.com
  */
-
 
 class CategoryAdapter(val items: List<CategoryModel>, val callback: CategoryAdapterCallback) :
     RecyclerView.Adapter<CategoryAdapter.ItemHolder>() {

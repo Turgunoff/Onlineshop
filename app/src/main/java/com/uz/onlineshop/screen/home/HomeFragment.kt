@@ -1,9 +1,9 @@
 package com.uz.onlineshop.screen.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -59,11 +59,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
         viewModel.categoriesData.observe(requireActivity()) {
             binding.recyclerCategories.adapter =
-                CategoryAdapter(it, object : CategoryAdapterCallback {
-                    override fun onClickItem(item: CategoryModel) {
-                        viewModel.getProductsByCategory(item.id)
+                CategoryAdapter(
+                    it,
+                    object : CategoryAdapterCallback {
+                        override fun onClickItem(item: CategoryModel) {
+                            viewModel.getProductsByCategory(item.id)
+                        }
                     }
-                })
+                )
         }
         viewModel.productsData.observe(requireActivity()) {
             binding.recyclerProducts.adapter = ProductAdapter(it)

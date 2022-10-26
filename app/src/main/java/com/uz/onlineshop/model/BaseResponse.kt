@@ -1,6 +1,5 @@
 package com.uz.onlineshop.model
 
-
 /**
  * Created by Eldor Turgunov.
  * Online shop

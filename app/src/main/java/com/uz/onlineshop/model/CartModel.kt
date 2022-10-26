@@ -5,7 +5,7 @@ package com.uz.onlineshop.model
  * Online shop
  * eldorturgunov777@gmail.com
  */
-data class OfferModel(
-    val id: Int,
-    val image: String
+data class CartModel(
+    val product_id: Int,
+    var count: Int
 )
